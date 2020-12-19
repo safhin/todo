@@ -12,13 +12,23 @@
     <nav class="bg-white p-8 flex justify-between mb-4">
         <ul class="flex items-center">
             <li class="pr-3"><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="#">Tasks</a></li>
+            <li><a href="{{ route('tasks') }}">Tasks</a></li>
         </ul>
+        @auth
         <ul class="flex items-center">
-            <li class="pr-3"><a href="{{ route('register') }}">Register</a></li>
-            <li class="pr-3"><a href="#">Login</a></li>
-            <li><a href="#">Logout</a></li>
+            <li class="pr-3"><a href="{{ route('register') }}">Zahid Hasan</a></li>
+            <form action="{{ route('logout') }}">
+                @csrf
+                <li><button class="focus:outline-none">Logout</button></li>
+            </form>
         </ul>
+        @endauth
+       @guest
+           <ul class="flex items-center">
+                <li class="pr-3"><a href="{{ route('register') }}">Register</a></li>
+                <li class="pr-3"><a href="{{ route('login') }}">Login</a></li>
+           </ul>
+       @endguest
     </nav>
     <div id="app">
         @yield('content')
