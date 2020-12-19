@@ -23,6 +23,6 @@ class LoginController extends Controller
         if(!auth()->attempt($request->only('email','password'))){
             return back()->with('status','Inavlid login cridentials');
         }
-        return redirect()->route('task');
+        return redirect()->route('tasks');
     }
 }
