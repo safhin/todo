@@ -27,6 +27,9 @@ Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'store']);
 
 Route::get('/', [HomeController::class,'index'])->name('home');
-Route::get('/tasks', [TaskController::class,'index'])->name('tasks');
 
+Route::prefix('/tasks')->group(function () {
+    Route::get('/home', [TaskController::class,'index'])->name('tasks');
+    Route::get('/create', [TaskController::class,'create'])->name('create');
+});
 
