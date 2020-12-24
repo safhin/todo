@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDedlineToTasksTable extends Migration
+class DeleteDedlineColumnFromTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddDedlineToTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->integer('dedline')->nullable();
+            $table->dropColumn('dedline');
         });
     }
 
@@ -26,7 +26,7 @@ class AddDedlineToTasksTable extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->dropIfExists('dedline');
+            $table->integer('dedline')->nullable();
         });
     }
 }

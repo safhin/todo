@@ -31,5 +31,5 @@ Route::get('/', [HomeController::class,'index'])->name('home');
 Route::prefix('/tasks')->group(function () {
     Route::get('/home', [TaskController::class,'index'])->name('tasks');
     Route::get('/create', [TaskController::class,'create'])->name('create');
+    Route::post('/create', [TaskController::class,'store'])->name('store');
 });
-
