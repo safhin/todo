@@ -32,4 +32,7 @@ Route::prefix('/tasks')->group(function () {
     Route::get('/home', [TaskController::class,'index'])->name('tasks');
     Route::get('/create', [TaskController::class,'create'])->name('create');
     Route::post('/create', [TaskController::class,'store'])->name('store');
+    Route::get('/edit/{id}', [TaskController::class,'edit'])->name('edit');
+    Route::post('/update/{id}', [TaskController::class,'update'])->name('update');
+    Route::post('/delete/{id}', [TaskController::class,'delete'])->name('delete');
 });
